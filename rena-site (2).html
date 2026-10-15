@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Рена — Секреты стройности</title>
+<meta name="description" content="Рена — нутрициолог и эксперт по стройности. Программа «Секреты стройности»: стройность без диет, запретов и откатов.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap">
+<style>
+/* Layout: centred, slide-like bands alternating midnight / royal-gradient / cream, as in Rena's presentation */
+:root{
+  --night:#050e2b; --royal:#113788; --royal-mid:#0b2163; --card-blue:#0e225d; --card-blue-2:#0a1748;
+  --champagne:#ecd3b2; --gold-line:#c9ad7f; --gold-deep:#7a5c26; --gold-ink:#6e521f;
+  --cream-1:#f2e5d1; --cream-2:#e3c6a2; --cream-bg:#f5ede0; --paper:#fbf6ee;
+  --ink:#f4f4fa; --ink-soft:#dfe2ef; --muted:#c8cce0; --muted-2:#a9afc8;
+  --navy-ink:#0c1b4c; --navy-soft:#2a2f52; --navy-muted:#4a4f6e;
+  --serif:'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --sans:'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --gutter-l:max(16px, env(safe-area-inset-left, 0px)); --gutter-r:max(16px, env(safe-area-inset-right, 0px));
+  color-scheme:light dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--night);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;margin:0}
+a{color:var(--champagne)}
+:focus-visible{outline:2px solid var(--champagne);outline-offset:3px}
+h1,h2,h3,h4{text-wrap:balance}
+
+.wrap{max-width:1200px;margin:0 auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
+.band{padding-block:clamp(64px,9vw,104px)}
+.band.night{background:var(--night)}
+.band.royal{background:linear-gradient(160deg,var(--royal) 0%,var(--royal-mid) 55%,var(--night) 100%)}
+.band.cream{background:linear-gradient(160deg,var(--cream-bg),#ead8bd);color:var(--navy-ink)}
+
+.eyebrow{margin:0;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--champagne)}
+.cream .eyebrow{color:var(--gold-ink);font-weight:600}
+.h2{margin:0;font-family:var(--serif);font-weight:500;font-size:clamp(34px,5vw,48px);line-height:1.1;letter-spacing:.06em;text-transform:uppercase}
+.h2 em{font-style:normal;color:var(--champagne)}
+.cream .h2 em{color:var(--gold-deep)}
+.rule{display:block;width:104px;height:1px;background:var(--gold-line)}
+.head{display:flex;flex-direction:column;gap:16px;max-width:720px}
+.lead{margin:0;color:var(--muted)}
+.cream .lead{color:var(--navy-soft)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 28px;border-radius:10px;font:inherit;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:transform .15s ease, filter .15s ease}
+.btn:hover{filter:brightness(1.05)}
+.btn:active{transform:translateY(1px)}
+.btn-gold{background:linear-gradient(180deg,var(--cream-1),var(--cream-2));color:var(--navy-ink)}
+.btn-line{background:transparent;border-color:var(--gold-line);color:var(--champagne)}
+.btn-blue{background:linear-gradient(160deg,#1a3887,var(--card-blue));color:var(--champagne)}
+.btn-line-navy{background:transparent;border-color:var(--navy-ink);color:var(--navy-ink)}
+
+/* Header */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(5,14,43,.94);border-bottom:1px solid rgba(201,173,127,.35);backdrop-filter:blur(6px)}
+.site-head .wrap{display:flex;align-items:center;gap:20px 28px;flex-wrap:wrap;padding-block:12px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink);flex-grow:1}
+.mark{width:44px;height:44px;border-radius:999px;overflow:hidden;position:relative;flex-shrink:0;border:1px solid rgba(201,173,127,.6)}
+.mark{display:flex;align-items:center;justify-content:center}
+.mark img{display:block;width:62%;height:auto}
+.brand-name{display:flex;flex-direction:column;line-height:1.2;gap:2px}
+.brand-name b{font-family:var(--serif);font-size:22px;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
+.brand-name small{font-size:11px;color:var(--champagne);letter-spacing:.2em;text-transform:uppercase}
+.nav{display:flex;gap:22px;flex-wrap:wrap;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+.nav a{color:var(--ink);text-decoration:none}
+.nav a:hover{color:var(--gold-deep)}
+.cart-btn{display:flex;align-items:center;gap:10px;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--gold-line);background:transparent;color:var(--champagne);font:inherit;font-size:14px;cursor:pointer}
+.badge{min-width:24px;height:24px;padding:0 7px;border-radius:999px;background:linear-gradient(180deg,var(--cream-1),var(--cream-2));color:var(--navy-ink);font-size:13px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:linear-gradient(140deg,var(--royal) 0%,var(--royal-mid) 40%,var(--night) 100%);padding-block:clamp(72px,10vw,104px)}
+.hero-in{position:relative;max-width:960px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:26px}
+.hero .mark{width:120px;height:120px;border:none;border-radius:0;overflow:visible}
+.hero .mark img{width:100%}
+.kicker{display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;font-size:12px;letter-spacing:.24em;text-transform:uppercase}
+.kicker i{width:64px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-line))}
+.kicker i:last-child{background:linear-gradient(90deg,var(--gold-line),transparent)}
+.hero h1{margin:0;font-family:var(--serif);font-weight:500;font-size:clamp(40px,7vw,68px);line-height:1.05;letter-spacing:.06em;text-transform:uppercase}
+.hero h1 em{font-style:normal;color:var(--champagne)}
+.hero .tag{margin:0;font-family:var(--serif);font-style:italic;font-size:clamp(21px,3vw,26px);line-height:1.35;color:var(--champagne)}
+.hero .sub{margin:0;font-size:17px;font-weight:300;color:var(--muted);max-width:620px}
+.row-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.stats{width:100%;max-width:820px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-top:20px;padding-top:32px;border-top:1px solid rgba(201,173,127,.4)}
+.stats div{display:flex;flex-direction:column}
+.stats b{font-family:var(--serif);font-size:46px;font-weight:500;color:var(--champagne);line-height:1.1}
+.stats span{font-size:14px;color:var(--muted)}
+
+/* About */
+.about{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--night) 0%,var(--royal-mid) 60%,var(--royal) 100%)}
+.about .sun{position:absolute;right:-160px;top:-120px;width:520px;height:520px;border-radius:999px;background:linear-gradient(160deg,var(--champagne),#b8955c);opacity:.85;pointer-events:none}
+.about-grid{position:relative;display:flex;flex-wrap:wrap-reverse;gap:56px;align-items:center}
+.about-text{flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:22px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.facts div{background:linear-gradient(180deg,var(--cream-1),var(--cream-2));color:var(--navy-ink);border-radius:12px;padding:20px 22px;font-family:var(--serif);font-size:20px;line-height:1.3}
+.quote{margin:8px 0 0;font-family:var(--serif);font-size:26px;font-style:italic;color:var(--champagne)}
+.story{margin:0;font-size:15px;color:var(--ink-soft);max-width:68ch}
+.arch-wrap{flex:1 1 320px;min-width:0;display:flex;justify-content:center}
+.arch{width:100%;max-width:380px;aspect-ratio:3/4;border-radius:190px 190px 18px 18px;border:1px solid var(--gold-line);padding:10px}
+.arch div{width:100%;height:100%;border-radius:180px 180px 12px 12px;background:var(--cream-1);color:var(--navy-ink);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;font-size:14px}
+
+/* Results */
+.results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.result{margin:0;background:var(--paper);border:1px solid var(--gold-line);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:12px}
+.result b{font-family:var(--serif);font-size:36px;font-weight:500;color:var(--gold-deep);line-height:1.1}
+.result blockquote{margin:0;font-family:var(--serif);font-size:20px;line-height:1.4}
+.result figcaption{font-size:13px;color:var(--navy-muted)}
+
+/* Pain + steps */
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.navy-card{background:linear-gradient(180deg,var(--card-blue),var(--card-blue-2));border:1px solid rgba(201,173,127,.55);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:10px}
+.navy-card h3{margin:0;font-family:var(--serif);font-size:25px;font-weight:500;line-height:1.2}
+.navy-card p{margin:0;font-size:15px;color:var(--muted)}
+.callout{border-radius:14px;background:linear-gradient(180deg,var(--cream-1),var(--cream-2));color:var(--navy-ink);padding:32px 40px;display:flex;flex-wrap:wrap;gap:12px 40px;align-items:center}
+.callout strong{flex:1 1 300px;font-family:var(--serif);font-size:32px;font-weight:500;line-height:1.2}
+.callout p{margin:0;flex:2 1 380px;font-size:15px;color:var(--navy-soft)}
+.steps{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.steps li{background:linear-gradient(180deg,var(--cream-1),var(--cream-2));color:var(--navy-ink);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:10px}
+.steps .n{font-family:var(--serif);font-size:36px;font-weight:500;line-height:1}
+.steps i{width:32px;height:1px;background:var(--gold-deep)}
+.steps h3{margin:4px 0 0;font-family:var(--serif);font-size:24px;font-weight:600;line-height:1.2}
+.steps p{margin:0;font-size:15px;color:var(--navy-soft)}
+.serif-lead{margin:0;font-family:var(--serif);font-size:24px}
+
+/* Services */
+.svc-head{display:flex;flex-wrap:wrap;gap:20px 40px;align-items:flex-end;justify-content:space-between}
+.group-label{margin:8px 0 0;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--champagne);font-weight:500}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.svc-grid.programs{grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))}
+.svc{border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:16px}
+.svc.c{background:linear-gradient(180deg,var(--card-blue),var(--card-blue-2));border:1px solid rgba(201,173,127,.55)}
+.svc.p{background:linear-gradient(180deg,var(--cream-1),var(--cream-2));color:var(--navy-ink);padding:36px}
+.pill{align-self:flex-start;font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+.svc.c .pill{border:1px solid var(--gold-line);color:var(--champagne)}
+.svc.p .pill{background:var(--navy-ink);color:var(--champagne)}
+.svc h4{margin:0;font-family:var(--serif);font-weight:500;line-height:1.15}
+.svc.c h4{font-size:28px}
+.svc.p h4{font-size:40px;line-height:1.05;letter-spacing:.06em;text-transform:uppercase}
+.fmt{font-size:13px;letter-spacing:.04em;color:var(--muted)}
+.svc.p .fmt{color:#5a4520}
+.svc .desc{margin:0;font-size:15px;color:var(--ink-soft)}
+.svc.p .desc{font-family:var(--serif);font-size:21px;line-height:1.35;color:var(--navy-ink)}
+.svc ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px;flex-grow:1}
+.svc li{display:flex;gap:10px;font-size:15px;color:var(--ink-soft)}
+.svc.p li{color:var(--navy-soft)}
+.svc li svg{flex-shrink:0;margin-top:3px;stroke:var(--champagne)}
+.svc.p li svg{stroke:var(--gold-deep)}
+.price{display:flex;align-items:baseline;gap:12px;padding-top:16px;border-top:1px solid rgba(201,173,127,.4);font-variant-numeric:tabular-nums}
+.svc.p .price{border-top-color:rgba(122,92,38,.4)}
+.price b{font-family:var(--serif);font-size:36px;font-weight:500;color:var(--champagne)}
+.svc.p .price b{font-size:46px;color:var(--navy-ink)}
+.price s{font-size:15px;color:var(--muted-2)}
+.svc .btn{width:100%}
+.svc.c .in{background:transparent;border-color:var(--gold-line);color:var(--champagne)}
+.svc.p .add{background:linear-gradient(160deg,#1a3887,var(--card-blue));color:var(--champagne)}
+.svc.p .in{background:transparent;border-color:var(--navy-ink);color:var(--navy-ink)}
+.promise{display:flex;flex-wrap:wrap;gap:12px 32px;align-items:center;padding:24px 32px;border-radius:14px;border:1px solid var(--gold-line)}
+.promise b{font-family:var(--serif);font-size:30px;font-weight:500;color:var(--champagne)}
+.promise span{flex:1 1 300px;font-size:15px;color:var(--muted)}
+
+/* FAQ */
+.faq{display:flex;flex-direction:column;border-top:1px solid rgba(201,173,127,.45)}
+.faq details{border-bottom:1px solid rgba(201,173,127,.45);padding:22px 0}
+.faq summary{cursor:pointer;list-style:none;font-family:var(--serif);font-size:26px;font-weight:500;display:flex;justify-content:space-between;gap:16px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--champagne);font-size:28px;line-height:1;transition:transform .2s ease}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{margin:12px 0 0;font-size:15px;color:var(--muted);max-width:68ch}
+
+/* Final */
+.final{text-align:center;display:flex;flex-direction:column;align-items:center;gap:22px;max-width:1000px;margin:0 auto}
+.gift{width:100%;max-width:760px;margin-top:12px;border-radius:16px;padding:10px;border:1px solid rgba(201,173,127,.55)}
+.gift-in{border-radius:12px;background:linear-gradient(180deg,var(--cream-1),var(--cream-2));color:var(--navy-ink);padding:36px 24px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.gift-in small{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#5a4520;font-weight:600}
+.gift-in strong{font-family:var(--serif);font-size:clamp(34px,6vw,56px);font-weight:600;letter-spacing:.06em;color:var(--gold-ink);line-height:1.1}
+.gift-in span{font-size:15px;color:var(--navy-soft)}
+.ayah{margin:12px 0 0;font-family:var(--serif);font-style:italic;font-size:28px;color:var(--champagne)}
+footer{border-top:1px solid rgba(201,173,127,.35);padding-block:32px 104px;font-size:13px;color:var(--muted-2)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px 40px;justify-content:space-between}
+footer span:last-child{max-width:640px}
+
+/* Floating cart + drawer */
+.float{position:fixed;right:calc(20px + env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:30;min-height:56px;padding:0 22px;border-radius:999px;border:none;background:linear-gradient(180deg,var(--cream-1),var(--cream-2));color:var(--navy-ink);font:inherit;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:10px;box-shadow:0 10px 30px rgba(0,8,32,.5);font-variant-numeric:tabular-nums}
+.drawer{position:fixed;inset:0;z-index:40}
+.scrim{position:absolute;inset:0;width:100%;height:100%;border:none;background:rgba(0,4,20,.7);cursor:pointer}
+.panel{position:absolute;top:0;right:0;bottom:0;width:100%;max-width:460px;background:linear-gradient(180deg,var(--card-blue),var(--night));border-left:1px solid var(--gold-line);display:flex;flex-direction:column;overflow-y:auto;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);padding-right:env(safe-area-inset-right,0px)}
+.panel-head{padding:22px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(201,173,127,.45)}
+.panel-head h2{margin:0;font-family:var(--serif);font-weight:500;font-size:28px;letter-spacing:.06em;text-transform:uppercase}
+.panel-head h2 em{font-style:normal;color:var(--champagne)}
+.icon-btn{width:44px;height:44px;border-radius:999px;border:1px solid var(--gold-line);background:transparent;color:var(--champagne);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.panel-body{padding:8px 24px 28px;display:flex;flex-direction:column;gap:14px}
+.line{display:flex;gap:12px;align-items:flex-start;padding:16px 0;border-bottom:1px solid rgba(201,173,127,.35)}
+.line div{flex-grow:1;display:flex;flex-direction:column;gap:2px;min-width:0}
+.line b{font-family:var(--serif);font-size:22px;font-weight:500;line-height:1.2}
+.line small{font-size:13px;color:var(--muted)}
+.line .p{font-family:var(--serif);font-size:22px;font-weight:500;color:var(--champagne);white-space:nowrap}
+.line button{width:40px;height:40px;margin-top:-6px;border-radius:999px;border:none;background:transparent;color:var(--muted);cursor:pointer;flex-shrink:0}
+.hint{padding:14px 16px;border-radius:10px;border:1px solid rgba(201,173,127,.55);display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:14px;color:var(--ink-soft)}
+.hint span{flex:1 1 200px}
+.hint .btn{min-height:44px;padding:0 16px}
+.total{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0}
+.total span{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.total b{font-family:var(--serif);font-size:40px;font-weight:500;color:var(--champagne);font-variant-numeric:tabular-nums}
+.field{display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--muted)}
+.field input{min-height:48px;padding:0 14px;border-radius:10px;border:1px solid var(--gold-line);background:var(--night);color:var(--ink);font:inherit;font-size:16px}
+.field input::placeholder{color:#8990ad}
+.err{margin:0;font-size:13px;color:#f3b8a6}
+.fine{font-size:12px;color:var(--muted-2)}
+.done h3{margin:0;font-family:var(--serif);font-size:32px;font-weight:500;color:var(--champagne)}
+.done p{margin:0;font-size:15px;color:var(--muted)}
+.order{margin:0;padding:14px 16px;border-radius:10px;background:var(--night);border:1px solid rgba(201,173,127,.45);white-space:pre-wrap;font-family:var(--sans);font-size:14px;color:var(--ink-soft);user-select:all}
+.empty p{margin:0;font-family:var(--serif);font-size:22px}
+body{background:var(--paper);color:var(--navy-ink)}
+a{color:var(--gold-ink)}
+/* header */
+.site-head{background:rgba(251,246,238,.96);border-bottom-color:rgba(122,92,38,.3)}
+.brand{color:var(--navy-ink)}
+.brand-name small{color:var(--gold-ink)}
+.site-head .mark{background:var(--royal);border-color:var(--gold-line)}
+.nav a{color:var(--navy-ink)}
+.cart-btn{color:var(--navy-ink);border-color:var(--gold-line)}
+.badge{background:var(--royal);color:#fff}
+/* light bands */
+.about,.band.night{background:var(--paper);color:var(--navy-ink)}
+.band.night + .band.night{background:var(--cream-bg)}
+#uslugi{background:var(--cream-bg)}
+#faq{background:var(--paper)}
+.about .sun{opacity:.35}
+.about .eyebrow,.band.night .eyebrow{color:var(--gold-ink);font-weight:600}
+.about .h2 em,.band.night .h2 em{color:var(--gold-deep)}
+.about .rule,.band.night .rule{background:#b8955c}
+.lead{color:var(--navy-soft)}
+.facts div{background:#fff;border:1px solid var(--gold-line)}
+.quote{color:var(--gold-deep)}
+.story{color:var(--navy-soft)}
+.navy-card{background:#fff;border-color:var(--gold-line);color:var(--navy-ink)}
+.navy-card p{color:var(--navy-soft)}
+.callout{background:linear-gradient(160deg,var(--royal),var(--royal-mid));color:var(--ink)}
+.callout p{color:var(--ink-soft)}
+.band.night .btn-line{border-color:var(--navy-ink);color:var(--navy-ink)}
+.group-label{color:var(--gold-ink);font-weight:600}
+.svc.c{background:#fff;border-color:var(--gold-line);color:var(--navy-ink)}
+.svc.c .pill{color:var(--gold-ink);border-color:var(--gold-line)}
+.fmt{color:var(--navy-muted)}
+.svc .desc,.svc li{color:var(--navy-soft)}
+.svc li svg{stroke:var(--gold-deep)}
+.price{border-top-color:rgba(122,92,38,.35)}
+.price b{color:var(--navy-ink)}
+.price s{color:var(--navy-muted)}
+.svc.c .add{background:linear-gradient(160deg,#1a3887,var(--card-blue));color:var(--champagne)}
+.svc.c .in{border-color:var(--navy-ink);color:var(--navy-ink)}
+.svc.p{background:linear-gradient(160deg,var(--royal),var(--royal-mid));color:var(--ink);border:none}
+.svc.p .pill{background:var(--champagne);color:var(--navy-ink)}
+.svc.p .fmt{color:var(--champagne)}
+.svc.p .desc{color:var(--ink)}
+.svc.p li{color:var(--ink-soft)}
+.svc.p li svg{stroke:var(--champagne)}
+.svc.p .price{border-top-color:rgba(236,211,178,.35)}
+.svc.p .price b{color:var(--champagne)}
+.svc.p .add{background:linear-gradient(180deg,var(--cream-1),var(--cream-2));color:var(--navy-ink)}
+.svc.p .in{border-color:var(--champagne);color:var(--champagne)}
+.promise{border-color:var(--gold-line);background:#fff}
+.promise b{color:var(--gold-deep)}
+.promise span{color:var(--navy-soft)}
+.faq,.faq details{border-color:rgba(122,92,38,.3)}
+.faq summary::after{color:var(--gold-deep)}
+.faq p{color:var(--navy-soft)}
+#faq{border-top-color:rgba(122,92,38,.25)!important}
+footer{background:var(--cream-bg);color:var(--navy-muted);border-top-color:rgba(122,92,38,.3)}
+.float{background:linear-gradient(160deg,#1a3887,var(--card-blue));color:var(--champagne)}
+/* cart drawer */
+.panel{background:var(--paper);color:var(--navy-ink);border-left-color:var(--gold-line)}
+.panel-head{border-bottom-color:rgba(122,92,38,.3)}
+.panel-head h2 em{color:var(--gold-deep)}
+.icon-btn{color:var(--navy-ink)}
+.line{border-bottom-color:rgba(122,92,38,.25)}
+.line small,.line button{color:var(--navy-muted)}
+.line .p,.total b{color:var(--navy-ink)}
+.hint{color:var(--navy-soft);border-color:var(--gold-line)}
+.panel .btn-line{border-color:var(--navy-ink);color:var(--navy-ink)}
+.panel .btn-gold{background:linear-gradient(160deg,#1a3887,var(--card-blue));color:var(--champagne)}
+.total span,.field,.fine,.done p{color:var(--navy-muted)}
+.field input{background:#fff;color:var(--navy-ink)}
+.done h3{color:var(--gold-deep)}
+.order{background:#fff;color:var(--navy-ink)}
+.hero,.band.royal{color:var(--ink)}
+
+/* Section menu: always visible, scrolls sideways on phones */
+.site-head .wrap{flex-wrap:nowrap}
+.brand{flex-shrink:0}
+.nav{flex-wrap:nowrap;gap:20px;white-space:nowrap}
+.nav .nav-cart{display:none}
+.cart-btn{white-space:nowrap;flex-shrink:0}
+@media (max-width:1180px){.site-head .brand-name small{display:none}}
+@media (max-width:960px){
+  .site-head .wrap{flex-wrap:wrap;gap:10px 12px;padding-block:10px 0}
+  .brand{flex:1 1 0;min-width:0}
+  .site-head .brand-name small{display:block}
+  .nav .nav-cart{display:inline-block;font:inherit;cursor:pointer;background:var(--royal);color:var(--champagne);border-color:var(--royal)}
+  .brand-name small{font-size:10px;letter-spacing:.14em}
+  .cart-btn{padding:0 12px}
+  .cart-btn .cart-label{display:none}
+  .nav{display:flex;flex-wrap:nowrap;order:3;width:100%;overflow-x:auto;gap:8px;padding-bottom:10px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .nav::-webkit-scrollbar{display:none}
+  .nav a{flex-shrink:0;padding:8px 14px;border-radius:999px;border:1px solid var(--gold-line);font-size:11px;letter-spacing:.12em;background:#fff}
+}
+section[id]{scroll-margin-top:72px}
+@media (max-width:960px){section[id]{scroll-margin-top:118px}}
+
+/* Phones in dark mode: the page declares it supports dark (color-scheme: light dark) so Chrome, WebView in Telegram and Samsung Internet
+   don't auto-darken it; this "dark theme" keeps the same light look, with every colour set explicitly */
+@media (prefers-color-scheme: dark){
+  html,body{background:var(--paper);color:var(--navy-ink)}
+}
+</style>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="mark"><img src="data:image/png;base64,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" alt=""></span>
+      <span class="brand-name"><b>Рена</b><small>нутрициолог · эксперт по стройности</small></span>
+    </a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#" class="nav-cart" data-open-cart>Мой путь</a>
+      <a href="#about">Обо мне</a>
+      <a href="#results">Отзывы</a>
+      <a href="#kak">Как работаем</a>
+      <a href="#uslugi">Услуги и цены</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <button class="cart-btn" type="button" data-open-cart aria-label="Открыть корзину «Мой путь»">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.5"></circle><circle cx="18" cy="20" r="1.5"></circle><path d="M2 3h3l2.6 12.4a1 1 0 0 0 1 .8h9.7a1 1 0 0 0 1-.8L21 7H6"></path></svg>
+      <span class="cart-label">Мой путь</span><span class="badge" id="count">0</span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="hero-in">
+        <span class="mark"><img src="data:image/png;base64,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" alt="Знак «Секреты стройности»"></span>
+        <div class="kicker"><i aria-hidden="true"></i><span>Рена · нутрициолог, эксперт по стройности</span><i aria-hidden="true"></i></div>
+        <h1><em>Стройность</em> без диет, запретов и откатов</h1>
+        <p class="tag">Мягко, осознанно и с пользой для этой жизни и Ахира</p>
+        <p class="sub">Помогаю сёстрам прийти к комфортному весу через понимание настоящих причин переедания — без подсчёта калорий и голодовок.</p>
+        <div class="row-btns">
+          <a class="btn btn-gold" href="#uslugi">Собрать свой путь</a>
+          <button class="btn btn-line" type="button" data-add-diag>Бесплатная диагностика</button>
+        </div>
+        <div class="stats">
+          <div><b>150+</b><span>сестёр прошли мои программы</span></div>
+          <div><b>2,5 года</b><span>помогаю худеть без откатов</span></div>
+          <div><b>3 недели</b><span>длится основная программа</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band about" id="about">
+    <div class="sun" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="eyebrow">Обо мне</p>
+          <h2 class="h2">Меня зовут <em>Рена</em></h2>
+          <span class="rule" aria-hidden="true"></span>
+          <div class="facts">
+            <div>Нутрициолог, эксперт по стройности</div>
+            <div>Более 2,5 лет помогаю женщинам прийти к комфортному весу</div>
+            <div>Почти 12 лет работы рядом с врачами разных направлений</div>
+            <div>Без диет и жёстких ограничений</div>
+          </div>
+          <p class="quote">«Моей первой клиенткой была я сама»</p>
+          <p class="story">Я начала худеть в 14 лет и 20 лет жила на качелях: диеты, ограничения, срывы, чувство вины и новые попытки. Всё изменилось, когда врачи нашли у меня опухоль, из-за которой повышался кортизол: вес рос, даже когда я голодала. После успешной операции, альхамдулиллях, я решила больше никогда не худеть ценой здоровья. Изучение религии, нутрициологии и опыт работы с врачами помогли мне создать собственную систему — так появилась программа «Секреты стройности».</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band cream" id="results">
+    <div class="wrap" style="display:flex;flex-direction:column;gap:36px">
+      <div class="head">
+        <p class="eyebrow">Аллахумма барик · успех лишь от Аллаха</p>
+        <h2 class="h2">Результаты <em>сестёр</em></h2>
+        <span class="rule" aria-hidden="true" style="background:#b8955c"></span>
+      </div>
+      <div class="results-grid">
+        <figure class="result"><b>−5 см в талии</b><blockquote>«Было 95 см, сегодня 90. Я в шоке — я даже спортом не занималась».</blockquote><figcaption>Участница практикума</figcaption></figure>
+        <figure class="result"><b>−4 кг</b><blockquote>«Было 64, стало 60. Пришло душевное спокойствие, я по-другому смотрю на еду и больше не ругаю себя за поздний ужин».</blockquote><figcaption>Участница после эфира</figcaption></figure>
+        <figure class="result"><b>−8 см вокруг пупка</b><blockquote>«Поменяла отношение не только к еде, но и к происходящему вокруг. Это была моя последняя попытка похудеть — и тадам!»</blockquote><figcaption>Выпускница программы</figcaption></figure>
+        <figure class="result"><b>−3,7 кг · −6 см</b><blockquote>Май → июль 2026: вес 63,25 → 59,55 кг, живот по пупку 88 → 82 см, талия 78 → 75 см.</blockquote><figcaption>Замеры выпускницы</figcaption></figure>
+        <figure class="result"><b>−11 см по пупку</b><blockquote>Май → июль 2026: живот по пупку 93 → 82 см, грудь 104 → 99 см, вес 74 → 72,5 кг.</blockquote><figcaption>Замеры выпускницы</figcaption></figure>
+        <figure class="result"><b>Нет зацикленности на еде</b><blockquote>«Стала есть меньшими порциями и наедаюсь. Надела платье и пижамные штаны, которые раньше не сходились».</blockquote><figcaption>Участница программы</figcaption></figure>
+      </div>
+      <div><a class="btn btn-blue" href="https://t.me/+5MD4LBDLGsViZDY6" target="_blank" rel="noopener">Все отзывы в Telegram</a></div>
+    </div>
+  </section>
+
+  <section class="band night">
+    <div class="wrap" style="display:flex;flex-direction:column;gap:40px">
+      <div class="head">
+        <p class="eyebrow">Почему не получается</p>
+        <h2 class="h2">Узнаёте <em>себя?</em></h2>
+        <span class="rule" aria-hidden="true"></span>
+      </div>
+      <div class="pain-grid">
+        <div class="navy-card"><h3>Диеты работают недолго</h3><p>Минус 3 кг — потом плюс 5. И снова страх за каждый кусочек: «А вдруг опять наберу?»</p></div>
+        <div class="navy-card"><h3>Каждый запрет — это срыв</h3><p>Неделю держитесь на «правильном питании», а потом съедаете всё, что себе запрещали.</p></div>
+        <div class="navy-card"><h3>Еда вместо отдыха</h3><p>Заедаете скуку, усталость, тоску по родным. Едите с телефоном и не замечаете сытость.</p></div>
+        <div class="navy-card"><h3>Тянет на сладкое</h3><p>Постоянная тяга к сладкому, вздутие, тяжесть в животе, «плавающий» сахар.</p></div>
+      </div>
+      <div class="callout">
+        <strong>✧ Дело не в еде, а в отношении к еде</strong>
+        <p>Лишний вес — лишь видимая часть айсберга. Пока не найдена настоящая причина, любая диета даёт временный результат. Поэтому мы идём не через запреты, а вглубь — к корню именно вашей проблемы.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band royal" id="kak">
+    <div class="wrap" style="display:flex;flex-direction:column;gap:44px">
+      <div class="head">
+        <p class="eyebrow">Как мы будем работать</p>
+        <h2 class="h2">Три шага к <em>стройности</em></h2>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="serif-lead">Вкусно, спокойно, без запретов и срывов.</p>
+      </div>
+      <ol class="steps">
+        <li><span class="n">01</span><i aria-hidden="true"></i><h3>Бесплатная диагностика</h3><p>15–20 минут онлайн. Разбираемся, почему именно у вас не получается похудеть, и выбираем подходящий формат.</p></li>
+        <li><span class="n">02</span><i aria-hidden="true"></i><h3>Личный разбор</h3><p>Смотрим глубже: эмоциональный голод, привычки, режим, ЖКТ. Вы получаете рекомендации, которые можно применять сразу.</p></li>
+        <li><span class="n">03</span><i aria-hidden="true"></i><h3>Программа «Секреты стройности»</h3><p>3 недели сопровождения: питание без запретов, ежедневная обратная связь и задания, которые меняют отношение к еде.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band night" id="uslugi">
+    <div class="wrap" style="display:flex;flex-direction:column;gap:32px">
+      <div class="svc-head">
+        <div class="head">
+          <p class="eyebrow">Услуги и цены</p>
+          <h2 class="h2">Соберите свой <em>путь</em></h2>
+          <span class="rule" aria-hidden="true"></span>
+          <p class="lead">Добавляйте услуги в «Мой путь» и отправьте заявку — я свяжусь с вами, подтвержу время и пришлю ссылку на оплату.</p>
+        </div>
+        <button class="btn btn-line" type="button" data-open-cart>Мой путь · <span data-total>0 ₽</span></button>
+      </div>
+      <h3 class="group-label">Консультации</h3>
+      <div class="svc-grid" id="grid-c"></div>
+      <h3 class="group-label" style="margin-top:20px">Программа «Секреты стройности» · 3 недели</h3>
+      <div class="svc-grid programs" id="grid-p"></div>
+      <div class="promise">
+        <b>✧ −2…7 кг и −2…9 см в талии</b>
+        <span>По опыту участниц за 3 недели программы — без диет и подсчёта калорий. Результат у каждой свой, би изниЛлях.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="band night" id="faq" style="border-top:1px solid rgba(201,173,127,.35)">
+    <div class="wrap" style="max-width:1000px;display:flex;flex-direction:column;gap:32px">
+      <div class="head">
+        <p class="eyebrow">Вопросы</p>
+        <h2 class="h2">Частые <em>вопросы</em></h2>
+        <span class="rule" aria-hidden="true"></span>
+      </div>
+      <div class="faq">
+        <details><summary>Можно ли похудеть и не набрать вес обратно?</summary><p>Да. Когда меняется отношение к еде и к себе, вы больше не живёте в режиме ограничений, у вас появляются устойчивые привычки — и не нужно снова и снова проходить одни и те же программы.</p></details>
+        <details><summary>Придётся отказаться от сладкого, пиццы и макарон?</summary><p>Нет. В программе нет запретов и подсчёта калорий. Вы учитесь есть так, чтобы не повышать сахар и инсулин, — вкусно и для себя, и для всей семьи.</p></details>
+        <details><summary>Нужны ли спортзал и 10 000 шагов в день?</summary><p>Нет. Основа работы — питание и пищевое поведение. Многие участницы уменьшают объёмы без тренировок.</p></details>
+        <details><summary>Чем Базовый пакет отличается от ВИП?</summary><p>В Базовом — один групповой созвон. В ВИП — три личных созвона, на которых я разбираю именно ваши корни лишнего веса и даю чёткие задания по их решению.</p></details>
+        <details><summary>Подойдёт, если нужно не похудеть, а набрать вес?</summary><p>Да. Работа с пищевым поведением помогает прийти к своей норме — и при лишнем весе, и при недовесе.</p></details>
+        <details><summary>Как проходит оплата?</summary><p>Соберите услуги в «Мой путь» и отправьте заявку. Я свяжусь с вами в Telegram, подтвержу время и пришлю ссылку на оплату.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="band royal" id="contact">
+    <div class="wrap">
+      <div class="final">
+        <p class="eyebrow">Главная мысль</p>
+        <h2 class="h2">Стройность держится на <em>спокойствии</em></h2>
+        <span class="rule" aria-hidden="true"></span>
+        <div class="gift">
+          <div class="gift-in">
+            <small>Напишите мне в личку слово</small>
+            <strong>«КОД СТРОЙНОСТИ»</strong>
+            <span>и начните свой путь уже сегодня, би изниЛлях</span>
+            <div class="row-btns" style="margin-top:14px">
+              <a class="btn btn-blue" href="https://t.me/rena722" target="_blank" rel="noopener">Написать @rena722</a>
+              <button class="btn btn-line-navy" type="button" data-add-diag>Записаться на диагностику</button>
+            </div>
+          </div>
+        </div>
+        <p class="ayah">«Разве не поминанием Аллаха успокаиваются сердца?»</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Рена · нутрициолог · «Секреты стройности»</span>
+    <span>Информация на сайте не является медицинской рекомендацией. Программа не заменяет лечение: при заболеваниях проконсультируйтесь с врачом.</span>
+  </div>
+</footer>
+
+<button class="float" type="button" id="float" data-open-cart hidden>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.5"></circle><circle cx="18" cy="20" r="1.5"></circle><path d="M2 3h3l2.6 12.4a1 1 0 0 0 1 .8h9.7a1 1 0 0 0 1-.8L21 7H6"></path></svg>
+  <span id="float-label">Мой путь</span>
+</button>
+
+<div class="drawer" id="drawer" hidden>
+  <button class="scrim" type="button" data-close-cart aria-label="Закрыть корзину"></button>
+  <aside class="panel" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+    <div class="panel-head">
+      <h2 id="drawer-title">Мой <em>путь</em></h2>
+      <button class="icon-btn" type="button" data-close-cart aria-label="Закрыть">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+      </button>
+    </div>
+    <div class="panel-body" id="panel-body"></div>
+  </aside>
+</div>
+
+<script>
+(function(){
+  var SERVICES = [
+    { id:'diag', g:'c', tag:'Начните здесь', name:'Диагностика «Код стройности»', fmt:'Онлайн · 15–20 минут', price:0,
+      desc:'Узнаете, что на самом деле стоит за вашим перееданием и лишним весом, и получите первые рекомендации.',
+      points:['Разбор вашей ситуации','Главная причина лишнего веса','Подбор подходящего формата работы'] },
+    { id:'consult', g:'c', tag:'Глубокий разбор', name:'Индивидуальная консультация', fmt:'Онлайн · 60 минут', price:5000,
+      desc:'Глубокий разбор корней вашего лишнего веса и переедания с чёткими заданиями.',
+      points:['Анализ питания и пищевых привычек','Эмоциональный голод: когда и почему','Личный план действий'] },
+    { id:'pack', g:'c', tag:'Выгоднее', name:'Пакет из 3 консультаций', fmt:'Онлайн · 3 встречи по 60 минут', price:12000, old:15000,
+      desc:'Для тех, кто хочет идти шаг за шагом под моим вниманием.',
+      points:['3 личных разбора','Задания между встречами','Корректировка плана по вашим результатам'] },
+    { id:'basic', g:'p', tag:'Мягкий старт', name:'Базовый', fmt:'3 недели · групповой формат', price:20000,
+      desc:'Мягкая смена образа жизни — без диет, жёстких ограничений и подсчёта калорий.',
+      points:['Рекомендации по питанию','Ежедневные отчёты по питанию и моя личная обратная связь','20 домашних заданий с проверкой и рекомендациями','1 групповой созвон (1–1,5 часа)','Обучение распознаванию эмоционального голода'] },
+    { id:'vip', g:'p', tag:'Максимум внимания', name:'ВИП', fmt:'3 недели · личное сопровождение', price:30000,
+      desc:'Всё из Базового пакета плюс личная работа именно с вашими причинами лишнего веса.',
+      points:['Всё, что входит в Базовый пакет','3 личных созвона по 1–1,5 часа','Разбор именно ваших корней проблемы лишнего веса','Чёткие задания по решению ваших проблем'] }
+  ];
+  var EXCL = { basic:'vip', vip:'basic', consult:'pack', pack:'consult' };
+  var cart = {}; var sent = null; var lastFocus = null;
+  try { var saved = JSON.parse(localStorage.getItem('rena-cart') || '{}'); if (saved && typeof saved === 'object') cart = saved; } catch(e) {}
+  function save(){ try { localStorage.setItem('rena-cart', JSON.stringify(cart)); } catch(e) {} }
+  function money(n){ return n ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g,' ') + ' ₽' : 'Бесплатно'; }
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function byId(id){ for (var i=0;i<SERVICES.length;i++) if (SERVICES[i].id===id) return SERVICES[i]; }
+  function items(){ return SERVICES.filter(function(s){ return cart[s.id]; }); }
+  function total(){ return items().reduce(function(a,s){ return a+s.price; },0); }
+  function cartName(s){ return s.g==='p' ? 'Секреты стройности · ' + s.name : s.name; }
+  var CHECK = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8 12l3 3 5-6"></path></svg>';
+
+  function add(id){ cart[id]=true; if (EXCL[id]) delete cart[EXCL[id]]; sent=null; save(); render(); }
+  function toggle(id){ if (cart[id]) { delete cart[id]; save(); render(); } else add(id); }
+
+  function card(s){
+    var inCart = !!cart[s.id];
+    return '<article class="svc '+s.g+'">' +
+      '<span class="pill">'+esc(s.tag)+'</span>' +
+      '<div style="display:flex;flex-direction:column;gap:4px"><h4>'+esc(s.name)+'</h4><span class="fmt">'+esc(s.fmt)+'</span></div>' +
+      '<p class="desc">'+esc(s.desc)+'</p>' +
+      '<ul>'+s.points.map(function(p){ return '<li>'+CHECK+'<span>'+esc(p)+'</span></li>'; }).join('')+'</ul>' +
+      '<div class="price"><b>'+money(s.price)+'</b>'+(s.old?'<s>'+money(s.old)+'</s>':'')+'</div>' +
+      '<button type="button" class="btn '+(inCart?'in':'add btn-gold')+'" data-toggle="'+s.id+'" aria-pressed="'+inCart+'">' +
+        (inCart ? '✓ В пути · убрать' : (s.price ? 'Добавить в мой путь' : 'Записаться бесплатно')) + '</button>' +
+    '</article>';
+  }
+
+  function orderText(name, contact){
+    var lines = items().map(function(s){ return '• ' + cartName(s) + ' — ' + money(s.price).replace(/ /g,' '); });
+    return 'Ассаляму алейкум, Рена! Хочу записаться:\n' + lines.join('\n') + '\nИтого: ' + (items().length ? money(total()).replace(/ /g,' ') : '0 ₽') + '\nИмя: ' + name + '\nКонтакт: ' + contact;
+  }
+
+  function renderPanel(){
+    var body = document.getElementById('panel-body');
+    if (sent) {
+      body.innerHTML = '<div class="done" style="display:flex;flex-direction:column;gap:14px;padding-top:20px">' +
+        '<h3>Заявка готова</h3>' +
+        '<p>Текст заявки скопирован — откройте Telegram и отправьте его Рене (@rena722). Она подтвердит время и пришлёт ссылку на оплату, ин шаа Аллах.</p>' +
+        '<pre class="order" id="order-text">'+esc(sent)+'</pre>' +
+        '<div class="row-btns" style="justify-content:flex-start">' +
+          '<button type="button" class="btn btn-gold" id="copy-btn">Скопировать заявку</button>' +
+          '<a class="btn btn-line" href="https://t.me/rena722" target="_blank" rel="noopener">Открыть Telegram</a>' +
+        '</div>' +
+        '<button type="button" class="btn btn-line" data-reset style="align-self:flex-start;min-height:44px">Начать заново</button>' +
+      '</div>';
+      return;
+    }
+    var list = items();
+    if (!list.length) {
+      body.innerHTML = '<div class="empty" style="display:flex;flex-direction:column;gap:16px;padding-top:24px">' +
+        '<p>Пока здесь пусто. Начните с бесплатной диагностики — разберём, что подойдёт именно вам.</p>' +
+        '<button type="button" class="btn btn-gold" data-add="diag" style="align-self:flex-start">Добавить диагностику</button></div>';
+      return;
+    }
+    body.innerHTML =
+      '<div>' + list.map(function(s){
+        return '<div class="line"><div><b>'+esc(cartName(s))+'</b><small>'+esc(s.fmt)+'</small></div>' +
+          '<span class="p">'+money(s.price)+'</span>' +
+          '<button type="button" data-toggle="'+s.id+'" aria-label="Убрать: '+esc(s.name)+'">✕</button></div>';
+      }).join('') + '</div>' +
+      (cart.diag ? '' : '<div class="hint"><span>Не уверены в выборе? Добавьте бесплатную диагностику — подберём формат вместе.</span><button type="button" class="btn btn-line" data-add="diag">Добавить</button></div>') +
+      '<div class="total"><span>Итого</span><b>'+money(total())+'</b></div>' +
+      '<form id="order-form" novalidate style="display:flex;flex-direction:column;gap:14px">' +
+        '<label class="field" for="f-name">Ваше имя<input id="f-name" name="name" autocomplete="given-name" placeholder="Например, Амина"></label>' +
+        '<label class="field" for="f-contact">Telegram или телефон<input id="f-contact" name="contact" placeholder="@username или +7…"></label>' +
+        '<p class="err" id="f-err" hidden>Укажите имя и Telegram или телефон, чтобы Рена могла с вами связаться.</p>' +
+        '<button type="submit" class="btn btn-gold">Оформить заявку · '+money(total())+'</button>' +
+        '<span class="fine">Оплата — после подтверждения, по ссылке от Рены.</span>' +
+      '</form>';
+  }
+
+  function render(){
+    document.getElementById('grid-c').innerHTML = SERVICES.filter(function(s){return s.g==='c';}).map(card).join('');
+    document.getElementById('grid-p').innerHTML = SERVICES.filter(function(s){return s.g==='p';}).map(card).join('');
+    var n = items().length, t = n ? money(total()) : '0 ₽';
+    document.getElementById('count').textContent = n;
+    document.querySelectorAll('[data-total]').forEach(function(el){ el.textContent = t; });
+    document.getElementById('float-label').textContent = 'Мой путь · ' + n + ' · ' + t;
+    document.getElementById('float').hidden = !n || !document.getElementById('drawer').hidden;
+    if (!document.getElementById('drawer').hidden) renderPanel();
+  }
+
+  function openCart(){ lastFocus = document.activeElement; var d=document.getElementById('drawer'); d.hidden=false; document.body.style.overflow='hidden'; renderPanel(); render(); var c=d.querySelector('.icon-btn'); if (c) c.focus(); }
+  function closeCart(){ document.getElementById('drawer').hidden=true; document.body.style.overflow=''; render(); if (lastFocus && lastFocus.focus) lastFocus.focus(); }
+
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('button, a'); if (!t) return;
+    if (t.hasAttribute('data-toggle')) { toggle(t.getAttribute('data-toggle')); return; }
+    if (t.hasAttribute('data-add')) { add(t.getAttribute('data-add')); return; }
+    if (t.hasAttribute('data-add-diag')) { add('diag'); openCart(); return; }
+    if (t.hasAttribute('data-open-cart')) { e.preventDefault(); openCart(); return; }
+    if (t.hasAttribute('data-close-cart')) { closeCart(); return; }
+    if (t.hasAttribute('data-reset')) { cart={}; sent=null; save(); render(); renderPanel(); return; }
+    if (t.id === 'copy-btn') {
+      var text = sent || '';
+      var done = function(){ t.textContent = 'Скопировано ✓'; };
+      var fallback = function(){ var pre=document.getElementById('order-text'); var r=document.createRange(); r.selectNodeContents(pre); var s=window.getSelection(); s.removeAllRanges(); s.addRange(r); t.textContent='Текст выделен — скопируйте его'; };
+      try { navigator.clipboard.writeText(text).then(done, fallback); } catch(err) { fallback(); }
+    }
+  });
+  document.addEventListener('submit', function(e){
+    if (e.target.id !== 'order-form') return;
+    e.preventDefault();
+    var name = document.getElementById('f-name').value.trim();
+    var contact = document.getElementById('f-contact').value.trim();
+    if (!name || !contact) { document.getElementById('f-err').hidden = false; return; }
+    sent = orderText(name, contact); renderPanel();
+    try { navigator.clipboard.writeText(sent).then(function(){ var b=document.getElementById('copy-btn'); if (b) b.textContent='Скопировано ✓'; }, function(){}); } catch(err) {}
+  });
+  document.addEventListener('keydown', function(e){ if (e.key==='Escape' && !document.getElementById('drawer').hidden) closeCart(); });
+  render();
+})();
+</script>
+</body>
+</html>
