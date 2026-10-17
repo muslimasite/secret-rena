@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbf6ee">
 <title>Рена — Секреты стройности</title>
 <meta name="description" content="Рена — нутрициолог и эксперт по стройности. Программа «Секреты стройности»: стройность без диет, запретов и откатов.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -309,10 +310,49 @@ footer{background:var(--cream-bg);color:var(--navy-muted);border-top-color:rgba(
 section[id]{scroll-margin-top:72px}
 @media (max-width:960px){section[id]{scroll-margin-top:118px}}
 
-/* Phones in dark mode: the page declares it supports dark (color-scheme: light dark) so Chrome, WebView in Telegram and Samsung Internet
-   don't auto-darken it; this "dark theme" keeps the same light look, with every colour set explicitly */
+/* ===== Fully light site: hero, "Как работаем" and "Контакты" become cream; blue stays only on buttons and accents ===== */
+html{background:var(--paper)}
+.hero,.band.royal{color:var(--navy-ink)}
+.hero{background:linear-gradient(160deg,#fbf6ee 0%,#f5ede0 55%,#ecdcc2 100%)}
+#kak{background:linear-gradient(160deg,var(--cream-bg),#ead8bd)}
+#contact{background:linear-gradient(160deg,#fbf6ee,#f2e5d1)}
+.hero .mark{width:120px;height:120px;border-radius:999px;background:linear-gradient(160deg,var(--royal),var(--night));overflow:hidden}
+.hero .mark img{width:62%}
+.kicker{color:var(--navy-soft)}
+.hero h1 em,.hero .tag{color:var(--gold-deep)}
+.hero .sub{color:var(--navy-soft)}
+.hero .btn-gold{background:linear-gradient(160deg,#1a3887,var(--card-blue));color:var(--champagne)}
+.hero .btn-line,.band.royal .btn-line{border-color:var(--navy-ink);color:var(--navy-ink)}
+.stats{border-top-color:rgba(122,92,38,.35)}
+.stats b{color:var(--gold-deep)}
+.stats span{color:var(--navy-muted)}
+.band.royal .eyebrow{color:var(--gold-ink);font-weight:600}
+.band.royal .h2 em{color:var(--gold-deep)}
+.band.royal .rule{background:#b8955c}
+.serif-lead{color:var(--navy-ink)}
+.steps li{background:#fff;border:1px solid var(--gold-line)}
+.callout{background:#fff;border:1px solid var(--gold-line);color:var(--navy-ink)}
+.callout strong{color:var(--gold-deep)}
+.callout p{color:var(--navy-soft)}
+.svc.p{background:#fff;border:1px solid var(--gold-line);color:var(--navy-ink)}
+.svc.p .pill{background:var(--navy-ink);color:var(--champagne)}
+.svc.p .fmt{color:#5a4520}
+.svc.p .desc{color:var(--navy-ink)}
+.svc.p li{color:var(--navy-soft)}
+.svc.p li svg{stroke:var(--gold-deep)}
+.svc.p .price{border-top-color:rgba(122,92,38,.35)}
+.svc.p .price b{color:var(--navy-ink)}
+.svc.p .add{background:linear-gradient(160deg,#1a3887,var(--card-blue));color:var(--champagne)}
+.svc.p .in{border-color:var(--navy-ink);color:var(--navy-ink)}
+.gift{border-color:var(--gold-line)}
+.ayah{color:var(--gold-deep)}
+.scrim{background:rgba(12,27,76,.35)}
+
+/* Always light. The page says it handles dark mode itself (color-scheme: light dark), so phone browsers and Telegram
+   don't repaint it dark; in dark mode it shows exactly the same light colours, set explicitly below */
 @media (prefers-color-scheme: dark){
   html,body{background:var(--paper);color:var(--navy-ink)}
+  .field input{background:#fff;color:var(--navy-ink)}
 }
 </style>
 </head>
