@@ -371,6 +371,28 @@ html{background:var(--paper)}
 .line .qbox{border-color:var(--gold-line)}
 .line-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:8px}
 .result-wide{grid-column:1/-1}
+
+/* Lighter "КОД СТРОЙНОСТИ" box */
+.gift{border-color:rgba(201,173,127,.45)}
+.gift-in{background:linear-gradient(180deg,#fffdf9,#f7efe2)}
+/* A little more blue: the key thought, the step numbers and the VIP card */
+.callout{background:linear-gradient(160deg,var(--royal),var(--royal-mid));border:none;color:var(--ink)}
+.callout strong{color:var(--champagne)}
+.callout p{color:var(--ink-soft)}
+.steps .n{color:var(--royal)}
+.steps i{background:var(--royal)}
+.svc.p.feat{background:linear-gradient(160deg,var(--royal),var(--royal-mid));border:none;color:var(--ink)}
+.svc.p.feat .pill{background:var(--champagne);color:var(--navy-ink)}
+.svc.p.feat .fmt{color:var(--champagne)}
+.svc.p.feat .desc{color:var(--ink)}
+.svc.p.feat li{color:var(--ink-soft)}
+.svc.p.feat li svg{stroke:var(--champagne)}
+.svc.p.feat .price{border-top-color:rgba(236,211,178,.35)}
+.svc.p.feat .price b{color:var(--champagne)}
+.svc.p.feat .add{background:linear-gradient(180deg,var(--cream-1),var(--cream-2));color:var(--navy-ink)}
+.svc.p.feat .in-label{color:var(--champagne)}
+.svc.p.feat .qbox{border-color:var(--champagne)}
+.svc.p.feat .qbox button,.svc.p.feat .qbox output{color:var(--ink)}
 </style>
 </head>
 <body>
@@ -419,7 +441,6 @@ html{background:var(--paper)}
   </section>
 
   <section class="band about" id="about">
-    <div class="sun" aria-hidden="true"></div>
     <div class="wrap">
       <div class="about-grid">
         <div class="about-text">
@@ -628,7 +649,7 @@ html{background:var(--paper)}
 
   function card(s){
     var inCart = qty(s.id) > 0;
-    return '<article class="svc '+s.g+'">' +
+    return '<article class="svc '+s.g+(s.id==='vip'?' feat':'')+'">' +
       '<span class="pill">'+esc(s.tag)+'</span>' +
       '<div style="display:flex;flex-direction:column;gap:4px"><h4>'+esc(s.name)+'</h4><span class="fmt">'+esc(s.fmt)+'</span></div>' +
       '<p class="desc">'+esc(s.desc)+'</p>' +
