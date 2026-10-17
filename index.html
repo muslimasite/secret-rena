@@ -670,22 +670,25 @@ html{background:var(--paper)}
     '</article>';
   }
 
-  function orderText(name, contact){
+  var TG = 'rena722';
+  function tgLink(text){ return 'https://t.me/' + TG + '?text=' + encodeURIComponent(text); }
+  function orderText(name){
     var lines = items().map(function(s){ var q = qty(s.id); return '• ' + cartName(s) + (q>1 ? ' × ' + q : '') + ' — ' + money(s.price*q).replace(/ /g,' '); });
-    return 'Ассаляму алейкум, Рена! Хочу записаться:\n' + lines.join('\n') + '\nИтого: ' + (items().length ? money(total()).replace(/ /g,' ') : '0 ₽') + '\nИмя: ' + name + '\nКонтакт: ' + contact;
+    return 'Ассаляму алейкум, Рена! Хочу записаться:\n' + lines.join('\n') + '\nИтого: ' + (items().length ? money(total()).replace(/ /g,' ') : '0 ₽') + '\nМеня зовут ' + name + '.';
   }
 
   function renderPanel(){
     var body = document.getElementById('panel-body');
     if (sent) {
       body.innerHTML = '<div class="done" style="display:flex;flex-direction:column;gap:14px;padding-top:20px">' +
-        '<h3>Заявка готова</h3>' +
-        '<p>Текст заявки скопирован — откройте Telegram и отправьте его Рене (@rena722). Она подтвердит время и пришлёт ссылку на оплату, ин шаа Аллах.</p>' +
+        '<h3>Осталось нажать «Отправить»</h3>' +
+        '<p>Открылся чат с Реной в Telegram, сообщение уже написано. Просто отправьте его — Рена подтвердит время и пришлёт ссылку на оплату, ин шаа Аллах.</p>' +
         '<pre class="order" id="order-text">'+esc(sent)+'</pre>' +
         '<div class="row-btns" style="justify-content:flex-start">' +
-          '<button type="button" class="btn btn-gold" id="copy-btn">Скопировать заявку</button>' +
-          '<a class="btn btn-line" href="https://t.me/rena722" target="_blank" rel="noopener">Открыть Telegram</a>' +
+          '<a class="btn btn-gold" href="'+esc(tgLink(sent))+'" target="_blank" rel="noopener">Открыть чат ещё раз</a>' +
+          '<button type="button" class="btn btn-line" id="copy-btn">Скопировать текст</button>' +
         '</div>' +
+        '<p style="font-size:13px">Если сообщение не появилось, скопируйте текст и вставьте его в чат с @rena722.</p>' +
         '<button type="button" class="btn btn-line" data-reset style="align-self:flex-start;min-height:44px">Начать заново</button>' +
       '</div>';
       return;
@@ -709,10 +712,9 @@ html{background:var(--paper)}
       '<div class="total"><span>Итого</span><b>'+money(total())+'</b></div>' +
       '<form id="order-form" novalidate style="display:flex;flex-direction:column;gap:14px">' +
         '<label class="field" for="f-name">Ваше имя<input id="f-name" name="name" autocomplete="given-name" placeholder="Например, Амина"></label>' +
-        '<label class="field" for="f-contact">Telegram или телефон<input id="f-contact" name="contact" placeholder="@username или +7…"></label>' +
-        '<p class="err" id="f-err" hidden>Укажите имя и Telegram или телефон, чтобы Рена могла с вами связаться.</p>' +
-        '<button type="submit" class="btn btn-gold">Оформить заявку · '+money(total())+'</button>' +
-        '<span class="fine">Оплата — после подтверждения, по ссылке от Рены.</span>' +
+        '<p class="err" id="f-err" hidden>Напишите, как вас зовут.</p>' +
+        '<button type="submit" class="btn btn-gold">Написать Рене в Telegram</button>' +
+        '<span class="fine">Откроется чат с Реной с готовым сообщением о вашем выборе. Оплата — после подтверждения, по ссылке от Рены.</span>' +
       '</form>';
   }
 
@@ -752,10 +754,13 @@ html{background:var(--paper)}
     if (e.target.id !== 'order-form') return;
     e.preventDefault();
     var name = document.getElementById('f-name').value.trim();
-    var contact = document.getElementById('f-contact').value.trim();
-    if (!name || !contact) { document.getElementById('f-err').hidden = false; return; }
-    sent = orderText(name, contact); renderPanel();
-    try { navigator.clipboard.writeText(sent).then(function(){ var b=document.getElementById('copy-btn'); if (b) b.textContent='Скопировано ✓'; }, function(){}); } catch(err) {}
+    if (!name) { document.getElementById('f-err').hidden = false; document.getElementById('f-name').focus(); return; }
+    sent = orderText(name);
+    var url = tgLink(sent);
+    try { navigator.clipboard.writeText(sent).catch(function(){}); } catch(err) {}
+    var w = null; try { w = window.open(url, '_blank'); } catch(err) {}
+    if (!w) { window.location.href = url; }
+    renderPanel();
   });
   document.addEventListener('keydown', function(e){ if (e.key==='Escape' && !document.getElementById('drawer').hidden) closeCart(); });
   render();
