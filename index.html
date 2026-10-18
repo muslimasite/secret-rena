@@ -429,7 +429,7 @@ html{background:var(--paper)}
         <p class="sub">Помогаю сёстрам прийти к комфортному весу через понимание настоящих причин переедания — без подсчёта калорий и голодовок.</p>
         <div class="row-btns">
           <a class="btn btn-gold" href="#uslugi">Собрать свой путь</a>
-          <button class="btn btn-line" type="button" data-add-diag>Бесплатная диагностика</button>
+          <a class="btn btn-line" href="#about">Узнать обо мне</a>
         </div>
         <div class="stats">
           <div><b>150+</b><span>сестёр прошли мои программы</span></div>
@@ -509,7 +509,7 @@ html{background:var(--paper)}
         <p class="serif-lead">Вкусно, спокойно, без запретов и срывов.</p>
       </div>
       <ol class="steps">
-        <li><span class="n">01</span><i aria-hidden="true"></i><h3>Бесплатная диагностика</h3><p>15–20 минут онлайн. Разбираемся, почему именно у вас не получается похудеть, и выбираем подходящий формат.</p></li>
+        <li><span class="n">01</span><i aria-hidden="true"></i><h3>Знакомство в Telegram</h3><p>Напишите мне «КОД СТРОЙНОСТИ». Разберёмся, почему именно у вас не получается похудеть, и выберем подходящий формат.</p></li>
         <li><span class="n">02</span><i aria-hidden="true"></i><h3>Личный разбор</h3><p>Смотрим глубже: эмоциональный голод, привычки, режим, ЖКТ. Вы получаете рекомендации, которые можно применять сразу.</p></li>
         <li><span class="n">03</span><i aria-hidden="true"></i><h3>Программа «Секреты стройности»</h3><p>4 недели сопровождения: питание без запретов, ежедневная обратная связь и задания, которые меняют отношение к еде.</p></li>
       </ol>
@@ -696,8 +696,8 @@ html{background:var(--paper)}
     var list = items();
     if (!list.length) {
       body.innerHTML = '<div class="empty" style="display:flex;flex-direction:column;gap:16px;padding-top:24px">' +
-        '<p>Пока здесь пусто. Начните с бесплатной диагностики — разберём, что подойдёт именно вам.</p>' +
-        '<button type="button" class="btn btn-gold" data-add="diag" style="align-self:flex-start">Добавить диагностику</button></div>';
+        '<p>Пока здесь пусто. Выберите консультацию, программу или практикум — и они появятся в вашем пути.</p>' +
+        '<a class="btn btn-gold" href="#uslugi" data-close-cart style="align-self:flex-start">Выбрать услуги</a></div>';
       return;
     }
     body.innerHTML =
@@ -708,7 +708,6 @@ html{background:var(--paper)}
           '<span class="p">'+money(s.price*q)+'</span>' +
           '<button type="button" data-remove="'+s.id+'" aria-label="Убрать: '+esc(s.name)+'">✕</button></div>';
       }).join('') + '</div>' +
-      (qty('diag') ? '' : '<div class="hint"><span>Не уверены в выборе? Добавьте бесплатную диагностику — подберём формат вместе.</span><button type="button" class="btn btn-line" data-add="diag">Добавить</button></div>') +
       '<div class="total"><span>Итого</span><b>'+money(total())+'</b></div>' +
       '<form id="order-form" novalidate style="display:flex;flex-direction:column;gap:14px">' +
         '<label class="field" for="f-name">Ваше имя<input id="f-name" name="name" autocomplete="given-name" placeholder="Например, Амина"></label>' +
