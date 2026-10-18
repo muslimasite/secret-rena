@@ -607,7 +607,7 @@ html{background:var(--paper)}
 <script>
 (function(){
   var SERVICES = [
-    { id:'diag', g:'c', tag:'Начните здесь', name:'Диагностика «Код стройности»', fmt:'15–20 минут', price:0,
+    { id:'diag', g:'c', tag:'Начните здесь', name:'Диагностика «Код стройности»', fmt:'', price:0,
       desc:'Узнаете, что на самом деле стоит за вашим перееданием и лишним весом, и получите первые рекомендации.',
       points:['Разбор вашей ситуации','Главная причина лишнего веса','Подбор подходящего формата работы'] },
     { id:'nutri', g:'c', tag:'Здоровье и витамины', name:'Консультация нутрициолога', fmt:'Разовый подробный разбор', price:3000,
@@ -661,7 +661,7 @@ html{background:var(--paper)}
     var inCart = qty(s.id) > 0;
     return '<article class="svc '+(s.g==='r'?'c':s.g)+(s.id==='vip'?' feat':'')+'">' +
       '<span class="pill">'+esc(s.tag)+'</span>' +
-      '<div style="display:flex;flex-direction:column;gap:4px"><h4>'+esc(s.name)+'</h4><span class="fmt">'+esc(s.fmt)+'</span></div>' +
+      '<div style="display:flex;flex-direction:column;gap:4px"><h4>'+esc(s.name)+'</h4>'+(s.fmt?'<span class="fmt">'+esc(s.fmt)+'</span>':'')+'</div>' +
       '<p class="desc">'+esc(s.desc)+'</p>' +
       '<ul>'+s.points.map(function(p){ return '<li>'+CHECK+'<span>'+esc(p)+'</span></li>'; }).join('')+'</ul>' +
       '<div class="price"><b>'+money(s.price)+'</b>'+(s.old?'<s>'+money(s.old)+'</s>':'')+'</div>' +
@@ -704,7 +704,7 @@ html{background:var(--paper)}
     body.innerHTML =
       '<div>' + list.map(function(s){
         var q = qty(s.id);
-        return '<div class="line"><div><b>'+esc(cartName(s))+'</b><small>'+esc(s.fmt)+(s.price && q>1 ? ' · '+money(s.price)+' за 1' : '')+'</small>' +
+        return '<div class="line"><div><b>'+esc(cartName(s))+'</b>'+(s.fmt || (s.price && q>1) ? '<small>'+esc(s.fmt)+(s.price && q>1 ? (s.fmt?' · ':'')+money(s.price)+' за 1' : '')+'</small>' : '') +
           '<span class="line-meta">'+stepper(s)+'</span></div>' +
           '<span class="p">'+money(s.price*q)+'</span>' +
           '<button type="button" data-remove="'+s.id+'" aria-label="Убрать: '+esc(s.name)+'">✕</button></div>';
