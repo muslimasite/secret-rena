@@ -719,7 +719,7 @@ html{background:var(--paper)}
   }
 
   function render(){
-    document.getElementById('grid-c').innerHTML = SERVICES.filter(function(s){return s.g==='c';}).map(card).join('');
+    document.getElementById('grid-c').innerHTML = SERVICES.filter(function(s){return s.g==='c' && s.id!=='diag';}).map(card).join('');
     document.getElementById('grid-p').innerHTML = SERVICES.filter(function(s){return s.g==='p';}).map(card).join('');
     document.getElementById('grid-r').innerHTML = SERVICES.filter(function(s){return s.g==='r';}).map(card).join('');
     var n = count(), t = n ? money(total()) : '0 ₽';
